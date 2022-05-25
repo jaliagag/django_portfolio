@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Titulazo</h1>
+  <p>mi nombre es {{nombre}}</p>
+  <p>mi apellido es {{apellido}}</p>
+  <p>lista de notas es {{listanotas}}</p>
+
+  {% for i in listanotas%}
+    {% if i < 4 %}
+      <p style='color:red'> NOTA MALA {{i}}</p>
+    {% else %} <p style='color:blue'>NOTA BUENA {{i}}</p>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>
+
