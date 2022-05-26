@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from mvt6.views import *
+from AppCoder.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -10,4 +11,5 @@ urlpatterns = [
     path('miprimeraplanilla/', template_test),
     path('miaplanillavariable/', vars_template),
     path('cargame/',using_loader),
+    path('showmedb/',create_course),
 ]

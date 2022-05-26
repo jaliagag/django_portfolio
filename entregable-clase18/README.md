@@ -292,6 +292,40 @@ Running migrations:
   Applying AppCoder.0001_initial... OK
 ```
 
+![001](./img/001.png)
+
+18. Agregar manualmente registro a la db:
+
+- `python manage.py shell`
+- importamos el modelo `from AppCoder.models import Curso`
+- agregamos la información del curso `curso = Curso(name='Python',camada='31750')`
+- cargamos el curso de la DB con `curso.save()`
+
+![002](./img/002.png)
+
+19. Agregar datos a nuestra db desde nuestra vista:
+
+```py
+# mvt6/AppCoder/views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from AppCoder.models import *
+
+def create_course(self):
+    course = Curso(name='Desarrollo Web', camada='2989')
+    course.save()
+    document = f'- Curso: {course.name} - camada = {course.camada}'
+
+    return HttpResponse(document)
+# mvt6/urls.py
+from AppCoder.views import *
+...
+path('showmedb/',create_course),
+...
+```
+
+![003](./img/003.png)
+
 
 
 
