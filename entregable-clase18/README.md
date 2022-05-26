@@ -12,5 +12,26 @@ Crear una web que permite ver los datos de algunos de tus familiares, guardados 
 1. crear carpeta
 2. `django-admin startproject <nombredelproyecto>`
 3. `cd mvt6`
-3. `python manage.py migrate`
-3. `python manage.py runserver`
+4. `python manage.py migrate`
+5. `python manage.py runserver`
+6. creamos el archivo `views.py` 
+7. a `views.py` agregamos:
+
+```py
+from django.http import HttpResponse
+
+def saludo(request):
+  return HttpResponse('Hola django-coder')
+```
+
+8. en `mvt6/urls.py` agregamos:
+
+```py
+from mvt6.views import saludo
+...
+    path('saludo/', saludo),
+...
+```
+
+
+
