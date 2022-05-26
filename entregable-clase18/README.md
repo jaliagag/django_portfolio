@@ -200,8 +200,97 @@ def using_loader(self):
 
 15. Django hace una distinción entre proyecto y aplicación. Un proyecto es _todo_. Dentro del proyecto habrá varias aplicaciones, donde cada aplicación tendrá su función. Dentro de nuestro proyecto, usamos el comando `python manage.py startapp AppCoder` para crear una app llamada **AppCoder**
 
-16. Modelo. ya tenemos templates (lo que se ve), view (información que se le pasa al template)
+16. Modelo. ya tenemos templates (lo que se ve), view (información que se le pasa al template). Dentro de nuestra app, vamos al archivo `models.py` y usaremos clases para crear la estructura de nuestro modelo
 
+```py
+# mvt6/AppCoder/models.py
+from django.db import models
+
+class Curso(models.Model):
+    name = models.CharField(max_length=40)
+    camada = models.IntegerField()
+
+class Estudiante(models.Model):
+    name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    email = models.EmailField()
+
+class Profesor(models.Model):
+    name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    email = models.EmailField()
+    profession = models.CharField(max_length=40)
+
+class Entregable(models.Model):
+    name = models.CharField(max_length=40)
+    submission_date = models.DateField()
+    submitted = models.BooleanField()
+```
+
+Ahora debemos informar a django de la app:
+
+```py
+#mvt6/settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'AppCoder', ## <<<<---
+]
+```
+
+Para ver si vamos bien, corremos `python manage.py check AppCoder`
+
+```console
+$ p manage.py check AppCoder
+System check identified no issues (0 silenced).
+```
+
+17. Transformaremos nuestros modelos en base de datos con `python manage.py makemigrations`
+
+```console
+$ p manage.py makemigrations
+Migrations for 'AppCoder':
+  AppCoder/migrations/0001_initial.py
+    - Create model Curso
+    - Create model Entregable
+    - Create model Estudiante
+    - Create model Profesor
+```
+
+Y veremos que se creó/modificó el archivo **db.sqlite3**. Ahora tenemos una DB _vacía_ - para generar la estructura corremos `python manage.py sqlmigrate AppCoder 0001`, que nos mostrará líneas de código SQL - para que impacten estas líneas de código debemos ejecutar `python manage.py migrate`
+
+```console
+$ p manage.py sqlmigrate AppCoder 0001
+BEGIN;
+--
+-- Create model Curso
+--
+CREATE TABLE "AppCoder_curso" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(40) NOT NULL, "camada" integer NOT NULL);
+--
+-- Create model Entregable
+--
+CREATE TABLE "AppCoder_entregable" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(40) NOT NULL, "submission_date" date NOT NULL, "submitted" bool NOT NULL);
+--
+-- Create model Estudiante
+--
+CREATE TABLE "AppCoder_estudiante" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(40) NOT NULL, "last_name" varchar(40) NOT NULL, "email" varchar(254) NOT NULL);
+--
+-- Create model Profesor
+--
+CREATE TABLE "AppCoder_profesor" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(40) NOT NULL, "last_name" varchar(40) NOT NULL, "email" varchar(254) NOT NULL, "profession" varchar(40) NOT NULL);
+COMMIT;
+
+$ p manage.py migrate
+Operations to perform:
+  Apply all migrations: AppCoder, admin, auth, contenttypes, sessions
+Running migrations:
+  Applying AppCoder.0001_initial... OK
+```
 
 
 
