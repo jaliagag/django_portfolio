@@ -11,3 +11,6 @@ Crear una web que permite ver los datos de algunos de tus familiares, guardados 
 
 1. crear carpeta
 2. `django-admin startproject <nombredelproyecto>`
+3. `cd mvt6`
+3. `python manage.py migrate`
+3. `python manage.py runserver`
