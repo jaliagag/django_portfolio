@@ -54,7 +54,7 @@ ROOT_URLCONF = 'mvt6.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/josemanuelfranciscoaliaga/22/django_portfolio/entregable-clase18/mvt6/mvt6/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

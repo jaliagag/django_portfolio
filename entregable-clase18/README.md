@@ -124,6 +124,86 @@ def vars_template(self):
   <p style='color: green'>Mi apellido es: {{apellido}}</p>
 ```
 
+13. TASK: variables complejas en plantillas
+
+para variables usamos `{{}}` y para bucles o condicionales usamos `{% %}`
+
+```py
+#mvt6/views.py
+# agregamos una variable compleja
+
+  my_list = [2,3,4,5,6,1]
+
+  dictionary = {'nombre':name,'apellido':last_name,'lista':my_list}
+```
+
+Mostramos los valores de la lista:
+
+```html
+# templates/template1.html
+  <p>Notas del curso:</p>
+
+  <p>
+  {% for i in lista %}
+  <p>{{i}}</p>
+  {% endfor %}
+  </p>
+```
+
+Ejecutamos lógica en html:
+
+```html
+  <p>
+  {% for i in lista %}
+    {% if i < 4 %}
+      <p style='color:red'>Desaprobado: {{i}}</p>
+    {% else %} <p style='color:blue'>Aprobado: {{i}}</p>
+    {% endif %}
+  {% endfor %}
+  </p>
+```
+
+[referencia](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/)
+
+14. Loader (cargador) de plantillas: guardamos todas las plantaillas en una misma carpeta - lo especificamos en `settings.py`:
+
+```py
+# mvt6/settings.py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['/Users/josemanuelfranciscoaliaga/22/django_portfolio/entregable-clase18/mvt6/mvt6/templates/'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+...
+
+# mvt6/views.py
+from django.template import loader 
+
+def using_loader(self):
+    name = 'jose'
+    last_name = 'aliaga'
+    dt = datetime.now()
+
+    my_list = [2,3,4,5,6,1]
+
+    dictionary = {'nombre':name,'apellido':last_name,'hoy':dt,'lista':my_list}
+
+    my_template = loader.get_template('template1.html')
+
+    document = my_template.render(dictionary) # ya no necesitamos un contexto
+
+    return HttpResponse(document)
+```
+
+**vemos el mismo resultado pero con menos código!**
+
+15. Django hace una distinción entre proyecto y aplicación. Un proyecto es _todo_. Dentro del proyecto habrá varias aplicaciones, donde cada aplicación tendrá su función. Dentro de nuestro proyecto, usamos el comando `python manage.py startapp AppCoder` para crear una app llamada **AppCoder**
+
+16. Modelo. ya tenemos templates (lo que se ve), view (información que se le pasa al template)
+
+
+
 
 
 

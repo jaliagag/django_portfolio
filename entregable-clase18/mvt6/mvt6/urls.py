@@ -9,4 +9,5 @@ urlpatterns = [
     path('minombre/<name>/',my_name),
     path('miprimeraplanilla/', template_test),
     path('miaplanillavariable/', vars_template),
+    path('cargame/',using_loader),
 ]
