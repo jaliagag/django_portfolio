@@ -11,6 +11,25 @@
   <h1>Mi familia!</h1>
 
   <p>Buen día {{name}}! </p>
+
+  <p>Miembro agregado con éxito!</p>
+  <div class='info'>
+    <ul>
+      <li>Nombre: {{name}}</li>
+      <li>Apellido: {{last_name}}</li>
+      <li>Edad: {{age}}</li>
+      <li>Parents: {{parents}</li>}
+      <li>Fecha de nacimiento: {{birth}}</li>
+    </ul>
+  </div> 
+
+  <div class='all'>
+    <p> Miembros de {{checking}}</p>
+    {% for i in db %}
+
+    {% endfor %}
+
+  </div>
     
 </body>
 </html>
