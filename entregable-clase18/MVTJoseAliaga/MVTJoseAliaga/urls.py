@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('health/', health),
     path('view_family/',check_family_index),
+    path('holis/<name>/',add_members),
 ]
