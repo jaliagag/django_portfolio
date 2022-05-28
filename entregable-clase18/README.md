@@ -51,12 +51,11 @@ def today(sequest):
 
 ```py
 # mvt6/views.py
-def today(sequest):
-    day = datetime.now()
-
-    document = f'hoy es: {day}'
+def my_name(self, name):
+    document = f'mi nombre es {name}'
 
     return HttpResponse(document)
+
 # mvt6/urls.py
 ...
     path('minombre/<name>/',my_name)
