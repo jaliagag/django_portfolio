@@ -2,7 +2,7 @@
 
 ## Requisitos
 
-- python3
+- python3
 - django
 - git
 
@@ -13,7 +13,7 @@ git clone https://github.com/jaliagag/django_portfolio.git
 cd django_portfolio
 git pull origin entregable-clase18
 cd entregable-clase18/MVTJoseAliaga
-python managet.py runserver
+python manage.py runserver
 ```
 
 ## Uso/URLs
