@@ -3,7 +3,7 @@ from django.urls import path
 from MyFamily import views
 
 urlpatterns = [
-    path('view_family/',views.check_family_index),
+    path('',views.check_family_index),
     path('members/',views.view_members),
     path('uncles/',views.view_uncles),
     path('cousins/',views.view_cousins),
