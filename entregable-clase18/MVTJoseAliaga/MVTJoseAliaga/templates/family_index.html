@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <h1>Mi familia!</h1>
+
+  <p>Buen día {{name}}! </p>
+
+  <p>Miembro agregado con éxito!</p>
+  <div class='info'>
+    <ul>
+      <li>Nombre: {{name}}</li>
+      <li>Apellido: {{last_name}}</li>
+      <li>Edad: {{age}}</li>
+      <li>Padres: {{parents}}</li>
+      <li>Fecha de nacimiento: {{birth}}</li>
+    </ul>
+  </div> 
+
+  <div class='all'>
+    <p> Miembros de {{checking}}</p>
+    <!--<p>{{db}}</p>-->
+
+    {% for i in db.items %}
+     <p>{{i}}</p>
+    {% endfor %}
+
+  </div>
+    
+</body>
+</html>

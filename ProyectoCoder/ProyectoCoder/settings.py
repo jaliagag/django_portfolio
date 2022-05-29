@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoCoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/jaliaga/git-projects/django_portfolio/ProyectoCoder/AppCoder/template/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
