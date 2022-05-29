@@ -16,7 +16,6 @@ def dbview(table):
     cursor = conn.cursor()
     
     a = "SELECT * FROM " + table
-    print(a)
     #Retrieving data
     cursor.execute(a)
     
@@ -52,26 +51,33 @@ def hi_family_member(self,name):
 
 def view_cousins(self):
 
-    document = my_template.render(dbview('MyFamily_cousin'))
+    checking = 'Primos'
+    a = dbview('MyFamily_cousin')
+    ledict = {'checking':checking,'db':a}
+    document = my_template.render(ledict)
 
     return HttpResponse(document)
 
 def view_members(self):
 
-    document = my_template.render(dbview('MyFamily_family_member'))
+    checking = 'Familia directa'
+    a = dbview('MyFamily_family_member')
+    ledict = {'checking':checking,'db':a}
+    document = my_template.render(ledict)
 
     return HttpResponse(document)
 
 def view_uncles(self):
 
-    document = my_template.render(dbview('MyFamily_uncle'))
+    checking = 'Tíos'
+    a = dbview('MyFamily_uncle')
+    ledict = {'checking':checking,'db':a}
+    document = my_template.render(ledict)
 
     return HttpResponse(document)
 
 def add_member_cousin(self,vname,vlast_name,vage,vparents,vbirth):
     
-    dbview('MyFamily_cousin')
-
     checking = 'Primos'
 
     mydict = {'name':vname,'last_name':vlast_name,'age':vage,'parents':vparents,'birth':vbirth,'checking':checking}
@@ -87,9 +93,7 @@ def add_member_cousin(self,vname,vlast_name,vage,vparents,vbirth):
 
 def add_member_family_member(self,vname,vlast_name,vage,vbirth):
 
-    dbview('MyFamily_family_member')
-
-    checking = 'Miembros de familia directa'
+    checking = 'familia directa'
 
     mydict = {'name':vname,'last_name':vlast_name,'age':vage,'birth':vbirth,'checking':checking}
     # agregamos a la db

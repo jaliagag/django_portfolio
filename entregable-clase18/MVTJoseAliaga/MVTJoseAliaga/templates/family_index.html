@@ -25,10 +25,9 @@
 
   <div class='all'>
     <p> Miembros de {{checking}}</p>
-    <p>{{result1}}</p>
-    <p>{{result2}}</p>
+    <!--<p>{{db}}</p>-->
 
-    {% for i in db %}
+    {% for i in db.items %}
      <p>{{i}}</p>
     {% endfor %}
 
