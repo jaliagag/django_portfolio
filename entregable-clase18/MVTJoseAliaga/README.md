@@ -21,14 +21,14 @@ python manage.py runserver
 Usar **localhost:8000/** más uno de estos endpoints:
 
 - `health/` --> comprobar que el server está corriendo adecuadamente. Deberíamos ver `Status 200 - OK`
-- `view_family/` --> nos muestra el template
-- `members` --> nos muestra los miembros de la tabla `MyFamily_family_member`
-- `uncles` --> nos muestra los miembros de la tabla `MyFamily_uncle`
-- `cousins` --> nos muestra los miembros de la tabla `MyFamily_cousin`
-- `hi/<name>/` --> nos saluda
-- `add_cousin/<vname>/<vlast_name>/<vage>/<vparents>/<vbirth>/` --> agregar un primo a la base de datos
-- `add_family_member/<vname>/<vlast_name>/<vage>/<vbirth>/` --> agregar un miembro de familia directa a la base de datos
-- `add_uncle/<vname>/<vlast_name>/<vage>/<vbirth>/` --> agregar un tío a la base de datos
+- `MyFamily/` --> nos muestra el template
+- `MyFamily/members` --> nos muestra los miembros de la tabla `MyFamily_family_member`
+- `MyFamily/uncles` --> nos muestra los miembros de la tabla `MyFamily_uncle`
+- `MyFamily/cousins` --> nos muestra los miembros de la tabla `MyFamily_cousin`
+- `MyFamily/hi/<name>/` --> nos saluda
+- `MyFamily/add_cousin/<vname>/<vlast_name>/<vage>/<vparents>/<vbirth>/` --> agregar un primo a la base de datos
+- `MyFamily/add_family_member/<vname>/<vlast_name>/<vage>/<vbirth>/` --> agregar un miembro de familia directa a la base de datos
+- `MyFamily/add_uncle/<vname>/<vlast_name>/<vage>/<vbirth>/` --> agregar un tío a la base de datos
 
 ## Ejemplos de la db
 
