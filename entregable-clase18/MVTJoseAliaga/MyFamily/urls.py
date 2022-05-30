@@ -11,4 +11,5 @@ urlpatterns = [
     path('add_cousin/<vname>/<vlast_name>/<vage>/<vparents>/<vbirth>/',views.add_member_cousin),
     path('add_family_member/<vname>/<vlast_name>/<vage>/<vbirth>/',views.add_member_family_member),
     path('add_uncle/<vname>/<vlast_name>/<vage>/<vbirth>/',views.add_member_uncle),
+    path('fixed/',views.fixed_members),
 ]

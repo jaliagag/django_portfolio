@@ -24,11 +24,29 @@
   </div> 
 
   <div class='all'>
-    <p> Miembros de {{checking}}</p>
+    <h2> Miembros de {{checking}}</h2>
     <!--<p>{{db}}</p>-->
 
-    {% for i in db.items %}
-     <p>{{i}}</p>
+    {% for i in familia %}
+      <ul>
+        <li>Nombre: {{i.name}}</li>
+        <li>Apellido: {{i.last_name}}</li>
+        <li>Edad: {{i.age}}</li>
+        <li>Padres: {{i.parents}}</li>
+        <li>Fecha de nacimiento: {{i.birth}}</li>
+      </ul>
+     <p></p>
+    {% endfor %}
+
+    <h2>TODOS! </h2>
+    {% for i in familia.all %}
+    <ul>
+      <li>Nombre: {{i.1}}</li>
+      <li>Apellido: {{i.2}}</li>
+      <li>Edad: {{i.3}}</li>
+      <li>Padres: {{i.4}}</li>
+      <li>Fecha de nacimiento: {{i.5}}</li>
+    </ul>
     {% endfor %}
 
   </div>

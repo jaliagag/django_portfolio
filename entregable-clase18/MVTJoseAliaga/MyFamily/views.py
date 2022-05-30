@@ -32,7 +32,7 @@ def dbview(table):
     #Closing the connection
     conn.close()
 
-    db = {'db': result}
+    db = {'all': result}
 
     return db
 
@@ -53,7 +53,7 @@ def view_cousins(self):
 
     checking = 'Primos'
     a = dbview('MyFamily_cousin')
-    ledict = {'checking':checking,'db':a}
+    ledict = {'checking':checking,'familia':a}
     document = my_template.render(ledict)
 
     return HttpResponse(document)
@@ -62,7 +62,7 @@ def view_members(self):
 
     checking = 'Familia directa'
     a = dbview('MyFamily_family_member')
-    ledict = {'checking':checking,'db':a}
+    ledict = {'checking':checking,'familia':a}
     document = my_template.render(ledict)
 
     return HttpResponse(document)
@@ -71,7 +71,7 @@ def view_uncles(self):
 
     checking = 'Tíos'
     a = dbview('MyFamily_uncle')
-    ledict = {'checking':checking,'db':a}
+    ledict = {'checking':checking,'familia':a}
     document = my_template.render(ledict)
 
     return HttpResponse(document)
@@ -123,3 +123,22 @@ def add_member_uncle(self,vname,vlast_name,vage,vbirth):
 
     return HttpResponse(document)
 
+def fixed_members(self):
+
+    checking = 'Todos!'
+
+    uncle = Uncle(name='alejandro',last_name='garcia',age=69,birth='1953-06-06')
+    member = Family_member(name='marcelo',last_name='aliaga',age=35,birth='1986-11-24')
+    cousin = Cousin(name='eduardo',last_name='berardo',age=22,parents='alejandro y monica',birth='2000-01-01')
+
+    uncle.save()
+    member.save()
+    cousin.save()
+
+    family = [uncle,member,cousin]
+
+    showme = {'familia':family}
+
+    document = my_template.render(showme)
+
+    return HttpResponse(document)
