@@ -199,6 +199,28 @@ def using_loader(self):
 
 15. Django hace una distinción entre proyecto y aplicación. Un proyecto es _todo_. Dentro del proyecto habrá varias aplicaciones, donde cada aplicación tendrá su función. Dentro de nuestro proyecto, usamos el comando `python manage.py startapp AppCoder` para crear una app llamada **AppCoder**
 
+- Manejamos las urls de las apps en un archivo `urls.py` en cada app - en el `urls.py` del proyecto, simplemente hacemos referencia:
+
+```py
+# mvt6/AppCoder/urls.py
+from django.urls import path
+from AppCoder import views
+
+urlpatterns = [
+  path('',views.inicio), # método inicio - primera view, el home
+  path('cursos/', views. cursos),
+  ...  
+]
+# mvt6/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+  path('admin/',admin.site.urls),
+  path('AppCoder/',include('AppCoder.urls')),
+]
+```
+
 16. Modelo. ya tenemos templates (lo que se ve), view (información que se le pasa al template). Dentro de nuestra app, vamos al archivo `models.py` y usaremos clases para crear la estructura de nuestro modelo
 
 ```py
