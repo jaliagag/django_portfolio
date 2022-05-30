@@ -22,9 +22,10 @@ Usar **localhost:8000/** más uno de estos endpoints:
 
 - `health/` --> comprobar que el server está corriendo adecuadamente. Deberíamos ver `Status 200 - OK`
 - `MyFamily/` --> nos muestra el template
-- `MyFamily/members` --> nos muestra los miembros de la tabla `MyFamily_family_member`
-- `MyFamily/uncles` --> nos muestra los miembros de la tabla `MyFamily_uncle`
-- `MyFamily/cousins` --> nos muestra los miembros de la tabla `MyFamily_cousin`
+- `MyFamily/members/` --> nos muestra los miembros de la tabla `MyFamily_family_member`
+- `MyFamily/uncles/` --> nos muestra los miembros de la tabla `MyFamily_uncle`
+- `MyFamily/cousins/` --> nos muestra los miembros de la tabla `MyFamily_cousin`
+- `MyFamily/fixed/` --> añade 3 miembros de manera fija y nos los muestra en la web
 - `MyFamily/hi/<name>/` --> nos saluda
 - `MyFamily/add_cousin/<vname>/<vlast_name>/<vage>/<vparents>/<vbirth>/` --> agregar un primo a la base de datos
 - `MyFamily/add_family_member/<vname>/<vlast_name>/<vage>/<vbirth>/` --> agregar un miembro de familia directa a la base de datos
