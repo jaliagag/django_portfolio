@@ -7,15 +7,15 @@ pipeline {
       }
     }
 
-    stage('pwd-ls') {
+    stage('build') {
       parallel {
-        stage('pwd-ls') {
+        stage('see') {
           steps {
             sh 'pwd && ls -la'
           }
         }
 
-        stage('unitest1') {
+        stage('django-build') {
           steps {
             sh 'cd Proyecto1 && python manage.py runserver'
           }
