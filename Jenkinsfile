@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('pwd-ls') {
-      steps {
-        sh 'pwd && ls -la'
+      parallel {
+        stage('pwd-ls') {
+          steps {
+            sh 'pwd && ls -la'
+          }
+        }
+
+        stage('unitest1') {
+          steps {
+            sh 'cd Proyecto1 && python manage.py runserver'
+          }
+        }
+
       }
     }
 
