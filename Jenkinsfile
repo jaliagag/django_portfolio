@@ -17,7 +17,7 @@ pipeline {
 
         stage('django-build') {
           steps {
-            sh 'cd Proyecto1 && python manage.py runserver'
+            sh 'docker build -t leapp:latest .'
           }
         }
 
